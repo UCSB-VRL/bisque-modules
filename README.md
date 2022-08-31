@@ -2,6 +2,9 @@
 
 Official Repo for Modules Integrated into BisQue Production
 
+
+## 🔥 Current Modules
+
 This is the official list of modules currently available on the BisQue Production service.
 
 ```sh
@@ -28,7 +31,7 @@ XtalsMesh
 
 
 
-## Contributing your own Module
+## 💡 Contributing your own Module
 
 
 If you would like to contribute your own module to BisQue, please use the BQModule Generator CLI we developed to automate the module generation process. You mainly need your source code in a `src` folder and the documentation will guide you through the rest of the way. 
