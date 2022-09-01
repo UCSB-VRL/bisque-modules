@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<h2>
+    <title>XtalsGoneWild</title>
+</h2>
+
+<body>
+
+    <h3>About:</h3>
+    <a href="public/workflow.png" target="_blank"> <img src="public/workflow.png" /></a>
+    <p>
+		When creating finite element models of 3D microstructures (synthetic or real, particularly real), almost certainly one needs to deal with 3D image data (voxelated). Real microstructures have smooth boundary surfaces/curves, so to create high-fidelity microstructure models, it is important to smooth the voxelated boundary surfaces/curves and produce an analysis-ready mesh that retains original grain shapes. The smoothing algorithm of XtalsGoneWild has been specifically tailored to preserve the boundaries/curves of the microstructure. Dream3D uses a similar algorithm, but is not refined enough to be useful for anything else besides visualization. This BisQue module created by Jonathan Hestroffer will produce analysis-ready (good element quality) volume mesh for any input. It can handle any arbitrary grain shape and there is no need to fiddle with parameters in order for it to successfully run. 
+    </p>
+
+    <h3>Input</h3>
+    <p> The input are 4 text files containing the following: <b>Nodes, Node Type, Triangles, Face Labels.</b></p>
+    <h3>Outputs</h3>
+    <ul>
+        <li><b>3D Mesh in VTK Format:</b> Mainly outputted for visualization purposes in Paraview, given in .VTK format</li>
+        <li><b>ABAQUS Input Mesh File:</b> Used as an Input file for ABAQUS Suite for Finite Element Characterization</li>
+      </ul>
+
+
+</body>
+
+</html>

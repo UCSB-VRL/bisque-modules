@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="substratedetector" type="runtime">
+             
+     <tag name="inputs">
+              
+          <tag name="resource_url" type="resource">
+               <template>
+                    <tag name="label" value="Select Image or Video"/>
+                    <tag name="accepted_type" value="image"/>
+                    <tag name="accepted_type" value="dataset"/>
+                    <tag name="prohibit_upload" value="True"/>
+               </template>
+          </tag>
+          <tag name="mex_url" type="system-input"/>
+          <tag name="bisque_token" type="system-input"/>
+     </tag>
+         
+     <tag name="outputs">
+          <tag name="Metadata">
+            <template>
+                <tag name="label" value="Metadata" />
+            </template>
+          </tag>
+     </tag>
+         
+     <tag name="execute_options">
+                  
+          <tag name="iterable" type="dataset" value="image_url"/>
+              
+     </tag>
+         
+     <tag name="module_options">
+                  
+          <tag name="version" value="1"/>
+              
+     </tag>
+         
+     <tag name="display_options">
+                 
+          <tag name="group" value="Metadata"/>
+              
+     </tag>
+         
+     <tag name="interface">
+                  
+          <tag name="javascript" type="file" value="webapp.js"/>
+                  
+          <tag name="css" type="file" value="webapp.css"/>
+              
+     </tag>
+         
+     <tag name="thumbnail" type="file" value="public/thumbnail.jpeg"/>
+            
+     <tag name="title" type="string" value="Substrate Detector"/>
+         
+     <tag name="authors" type="string" value="Austin Mcever, Connor Levenson, Amil Khan"/>
+         
+     <tag name="description" type="string" value="Underwater substrate detection"/>
+</module>

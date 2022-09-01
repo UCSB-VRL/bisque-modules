@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="XtalsMesh" type="runtime">
+
+  <!-- Comments are OK -->
+  <tag name="inputs">
+    <tag name="mex_url" type="system-input"/>
+    <tag name="bisque_token" type="system-input"/>
+    <tag name="nodes_url" type="resource">
+      <template>
+        <tag name="label" value="Select the Nodes File"/>
+        <tag name="accepted_type" value="file"/>
+        <tag name="prohibit_upload" value="false"/>
+        <tag name="query" value="filename:*.txt"/>
+      </template>
+    </tag>
+    <tag name="nodetype_url" type="resource">
+      <template>
+        <tag name="label" value="Select the Node Type File"/>
+        <tag name="accepted_type" value="file"/>
+        <tag name="prohibit_upload" value="false"/>
+        <tag name="query" value="filename:*.txt"/>
+      </template>
+    </tag>
+    <tag name="triangles_url" type="resource">
+      <template>
+        <tag name="label" value="Select the Triangles File"/>
+        <tag name="accepted_type" value="file"/>
+        <tag name="prohibit_upload" value="false"/>
+        <tag name="query" value="filename:*.txt"/>
+      </template>
+    </tag>
+    <tag name="facelabels_url" type="resource">
+      <template>
+        <tag name="label" value="Select the Face Labels File"/>
+        <tag name="accepted_type" value="file"/>
+        <tag name="prohibit_upload" value="false"/>
+        <tag name="query" value="filename:*.txt"/>
+      </template>
+    </tag>
+
+    <tag name="mex_url" type="system-input"/>
+    <tag name="bisque_token" type="system-input"/>
+  </tag>
+
+  <tag name="outputs">
+    <tag name="Segmentation" type="image">
+      <template>
+        <tag name="label" value="Segmentation image"/>
+      </template>
+    </tag>
+    <!-- <tag name="Metadata"> <template> <tag name="label" value="Metadata" /> </template> </tag>  -->
+  </tag>
+    <tag name="execute_options">
+      <tag name="iterable" value="table_url" type="dataset"/>
+    </tag>
+
+    <tag name="module_options">
+      <tag name="version" value="1"/>
+    </tag>
+
+    <tag name="display_options">
+      <tag name="group" value="Materials Science"/>
+    </tag>
+    <tag name="interface">
+      <tag name="javascript" type="file" value="webapp.js"/>
+      <tag name="css" type="file" value="webapp.css"/>
+    </tag>
+    <tag name="help" type="file" value="public/help.html"/>
+    <tag name="thumbnail" type="file" value="public/thumbnail.svg"/>
+
+    <tag name="title" type="string" value="XtalsGoneWild"/>
+    <tag name="authors" type="string" value="Jonathan Hestroffer, Amil Khan"/>
+    <tag name="description" type="string" value="Produce analysis-ready (good element quality) volume mesh for ANY INPUT."/>
+
+  </module>
