@@ -5,7 +5,8 @@
 # pytorch       latest (pip)
 # ==================================================================
 
-FROM ubuntu:18.04
+#FROM ubuntu:18.04
+FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND="noninteractive"
 
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
@@ -59,12 +60,12 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 	numpy==1.18.1 \
 	opencv-python==4.1.2.30 \
 	pandas==0.25.3 \
-	scikit-image==0.16.1 \
+	scikit-image==0.16.2 \
 	scikit-learn==0.22.1 \
-	scipy==1.2.0 \
+	#scipy==1.2.0 \
 	six==1.13.0 \
-	torch==1.2.0 \
-	torchvision==0.4.0 \
+	torch==1.4.0 \
+	torchvision==0.5.0 \
         && \
     $PIP3_INSTALL -i https://biodev.ece.ucsb.edu/py/bisque/prod/+simple \
         requests==2.18.4 \
@@ -82,6 +83,8 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # ==================================================================
 # Volume  & Entry Layer
 # ------------------------------------------------------------------
+
+RUN python3 -m pip --no-cache-dir install --upgrade tifffile 
 RUN mkdir /module
 RUN mkdir /module/source
 WORKDIR /module
