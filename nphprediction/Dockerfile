@@ -9,6 +9,10 @@
 FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND="noninteractive"
 
+RUN apt-get update
+RUN apt-get install -y --reinstall ca-certificates
+RUN apt-get update
+
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     PIP3_INSTALL="python3 -m pip --no-cache-dir install --upgrade" && \
     GIT_CLONE="git clone --depth 10" && \
