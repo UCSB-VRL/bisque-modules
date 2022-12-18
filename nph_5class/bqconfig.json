@@ -1,0 +1,1 @@
+{"Name": "NPHSegmentation", "Author": "VB", "Description": "New NPH segmentation module", "Inputs": {"Input Image": "image"}, "Outputs": {"Segmented Image": "image"}}
