@@ -1,0 +1,1 @@
+{"Name": "NPHSegmentationMetric", "Author": "Vikram, Chandrakanth", "Description": "Performs metric computation on (correctly) segmented brain scan files.", "Inputs": {"Input Scans": "image"}, "Outputs": {"Output Metric": "table"}}
