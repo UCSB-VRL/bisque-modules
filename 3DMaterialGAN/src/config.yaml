@@ -1,0 +1,23 @@
+gan_type: "wgan-gp"
+epochs: "default=10000"
+d_iter: 5
+d_low_thresh: 0.80
+d_high_thresh: 0.99
+current_epoch: 0
+current_iteration: 0
+batch_size: 32
+gp_lambda: 10
+z_size: 512
+g_lr: 0.0002
+d_lr: 0.0002
+betas: [0.0, 0.5]
+z_dis: "norm1"
+leak_value: 0.2
+cube_len: 64
+d_thresh: 0.8
+obj: "plane"
+labels: "noisy"
+models_path: "/module/src/saved_models_graindata"
+test_path: '/module/src/saved_models_graindata/plane_g_12.tar'
+data_dir: 'plane64_256'
+save_freq: 2
