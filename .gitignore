@@ -129,3 +129,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#model weights and dream3d
+.npy
+.dream3d
