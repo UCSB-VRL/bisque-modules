@@ -140,9 +140,16 @@ class PythonScriptWrapper(object):
 
             # Saves resource to module container at specified dest path
             # fetch_blob_output = fetch_blob(bq, resource_obj.uri, dest=input_path_dict[input_name])
+            # log.info("***** fetch_blob_output: %s"  % fetch_blob_output)
+
+            ##########################################################################################
             image = bq.load(resource_obj.uri)
             # name = image.name or next_name("blob")
             name = image.name
+            log.info("***** image.resource_uniq: %s" % image.resource_uniq)
+            log.info("***** image: %s" % image)
+            log.info("***** image.name: %s" % image.name)
+            log.info("predictor_url = bq.service_url(data_service, path = image.resource_uniq)")
             predictor_url = bq.service_url('blob_service', path = image.resource_uniq)
             log.info("predictor_URL: %s" % (predictor_url))
 
@@ -152,6 +159,7 @@ class PythonScriptWrapper(object):
             log.info("predictor_path: %s" % (predictor_path))
             # log.info(f"***** fetch_blob_output: {fetch_blob_output}")
             # log.info("***** fetch_blob_output: %s"  % fetch_blob_output)
+            ##########################################################################################
 
         # log.info(f"***** Input path dictionary : {input_path_dict}")
         log.info("***** Input path dictionary : %s" % input_path_dict)
@@ -184,6 +192,8 @@ class PythonScriptWrapper(object):
         # Run module from BQ_run_module and get get a dictionary that contains the paths to the module results
         try:
             bq.update_mex('Running module')
+            log.info("input_path_dict log"); log.info(input_path_dict)
+            print("input_path_dict print"); print(input_path_dict)
             self.output_data_path_dict = run_module(input_path_dict, outputs_dir_path) 
         except (Exception, ScriptError) as e:
             log.exception("***** Exception while running module from BQ_run_module")
