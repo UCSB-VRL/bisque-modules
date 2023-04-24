@@ -1,0 +1,27 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# Example usage: python train.py --data mare.yaml
+# parent
+# ├── yolov5
+# └── datasets
+#     └── mare  ← downloads here
+
+path: ../datasets/dataset_real_mosaic
+train: images/train_dir
+val: images/val_dir
+test: images/test_dir
+
+# Classes
+nc: 10
+
+names: [
+    'fragile pink urchin',
+    'gray gorgonian',
+    'squat lobster',
+    'Basket star',
+    'Long legged sunflower star',
+    'Yellow gorgonian',
+    'White slipper sea cucumber',
+    'White spine sea cucumber',
+    'Red swiftia gorgonian',
+    'UI laced sponge'
+    ]
