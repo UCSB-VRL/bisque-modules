@@ -1,0 +1,1 @@
+{"Name": "PrairieDogDetection", "Author": "BisQue Team", "Description": "This module detects prairie dogs and their burroughs", "Inputs": {"Input Image": "image"}, "Outputs": {"Output Image": "image"}}
