@@ -1,0 +1,25 @@
+<h1>Q-RBSA</h1>
+<p>(Quaternion Residual Block Self Attention Network)</p>
+<p>High-Resolution 3D EBSD Map Generation Using An Efficient Quaternion Transformer Network</p>
+<p><a href="https://sites.google.com/view/dkj910">Devendra K. Jangid</a>, <a href="https://scholar.google.com/citations?user=3dAoFJkAAAAJ&amp;hl=en">Neal R. Brodnik</a>, <a href="https://scholar.google.com/citations?user=fxN2OsUAAAAJ&amp;hl=en">McLean P. Echlin</a>, <a href="https://materials.ucsb.edu/people/faculty/tresa-pollock">Tresa M. Pollock</a>, <a href="https://scholar.google.com/citations?user=3whYx4UAAAAJ&amp;hl=en">Samantha H. Daly</a>, <a href="https://scholar.google.com/citations?user=wRYM4qgAAAAJ&amp;hl=en">B.S. Manjunath</a></p>
+<p><a href="https://arxiv.org/abs/2303.10722">Paper</a></p>
+<hr />
+
+<p><strong>Abstract:</strong> <em>Gathering 3D material microstructural information is time-consuming, expensive, and energy-intensive. Acquisition of 3D data has been accelerated by developments in serial sectioning instrument capabilities; however, for crystallographic information, the electron backscatter diffraction (EBSD) imaging modality remains rate limiting. We propose a physics-based efficient deep learning framework to reduce the time and cost of collecting 3D EBSD maps. Our framework uses a quaternion residual block self-attention network (QRBSA) to generate high-resolution 3D EBSD maps from sparsely sectioned EBSD maps. In QRBSA, quaternion-valued convolution effectively learns local relations in orientation space, while self-attention in the quaternion domain captures long-range correlations. We apply our framework to 3D data collected from commercially relevant titanium alloys, showing both qualitatively and quantitatively that our method can predict missing samples (EBSD information between sparsely sectioned mapping points) as compared to high-resolution ground truth 3D EBSD maps.</em></p>
+
+<hr />
+
+<h1>Input:</h1>
+<p>A Sparsely Sectioned 3D EBSD Sample in Quaternion Orientation (.npy array) </p>
+<h1>Output:</h1>
+<ul>
+	<li>
+	<p>A High-Resolution 3D EBSD Sample in Quaternion Orientation (.npy array)</p>
+	</li>
+	<li>
+	<p>A High-Resolution 3D EBSD Sample (Dream 3D format)</p>
+	</li>
+	<li>
+	<p>A Sparsely Sectioned Input 3D Sample (Dream 3D format)</p>
+	</li>
+</ul>

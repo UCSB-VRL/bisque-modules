@@ -129,7 +129,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+*/*/reference.dream3d
 
-#model weights and dream3d
-.npy
-.dream3d
+QRBSA/src/DREAM3D-6.5.141-Linux-x86_64/*
+*.pt
+*.npy
+SpeciesTrackerAndCounter/src/runs/train/*
+*.hdf5
+

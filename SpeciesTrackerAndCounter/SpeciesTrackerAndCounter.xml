@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="SpeciesTrackerAndCounter" type="runtime">
+             
+     <tag name="inputs">
+              
+          <tag name="Input Video" type="resource">
+               <template>
+                    <tag name="label" value="Input Video"/>
+                    <tag name="accepted_type" value="image"/>
+                    <tag name="accepted_type" value="dataset"/>
+                    <tag name="prohibit_upload" value="false"/>
+               </template>
+          </tag>
+          <tag name="mex_url" type="system-input_resource"/>
+          <tag name="bisque_token" type="system-input_resource"/>
+     </tag>
+         
+     <tag name="outputs">
+                  
+          <tag name="NonImage">
+                           
+               <template>
+                                    
+                    <tag name="label" value="Outputs"/>
+                                
+                    <tag name="Output Counts" type="table"/>
+                    <tag name="Annotation File" type="file"/>
+               </template>
+                       
+          </tag>
+              
+          <tag name="Output Video" type="image">
+               <template>
+                    <tag name="label" value="Output Video"/>
+               </template>
+          </tag>
+     </tag>
+         
+     <tag name="execute_options">
+                  
+          <tag name="iterable" type="dataset" value="Input Video"/>
+              
+     </tag>
+         
+     <tag name="module_options">
+                  
+          <tag name="version" value="1"/>
+              
+     </tag>
+         
+     <tag name="display_options">
+                 
+          <tag name="group" value="Metadata"/>
+              
+     </tag>
+         
+     <tag name="interface">
+                  
+          <tag name="javascript" type="file" value="webapp.js"/>
+                  
+          <tag name="css" type="file" value="webapp.css"/>
+              
+     </tag>
+         
+     <tag name="help" type="file" value="public/help.html"/>
+         
+     <tag name="thumbnail" type="file" value="public/thumbnail.jpg"/>
+            
+     <tag name="title" type="string" value="SpeciesTrackerAndCounter"/>
+         
+     <tag name="authors" type="string" value="Bowen Zhang"/>
+         
+     <tag name="description" type="string" value="This module takes an underwater video as inputs and outputs a labeled video, counts, and annotations."/>
+</module>

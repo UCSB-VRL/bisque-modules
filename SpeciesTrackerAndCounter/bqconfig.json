@@ -1,0 +1,1 @@
+{"Name": "SpeciesTrackerAndCounter", "Author": "Bowen Zhang", "Description": "This module takes an underwater video as inputs and outputs a labeled video, counts, and annotations.", "Inputs": {"Input Video": "image"}, "Outputs": {"Output Video": "image", "Output Counts": "table", "Annotation File": "file"}}
