@@ -1,0 +1,15 @@
+MODEL_CONFIG: "/module/src/model_config.yaml"
+TILES_DIR: "/module/src/data/image_tiles"
+IM_DIR: "/module/src/data/images"
+LABELS_DIR: "/module/src/runs/detect/exp/labels"
+DETECT_DIR: "/module/src/runs/detect"
+OUTFILE: "/module/src/out.txt"
+OUTIMAGE: "/module/src/out.jpg"
+
+CLASSES: {'0': 'prairie_dog', '1': 'prairie_dog_in_burrow',  '2': 'burrow'}
+BOXES: {'0': [], '1': [], '2': []}
+COLOR_MAP: {'0': [0.9, 0, 0], '1': [0, 0.9, 0], '2': [0, 0, 0.9]}
+
+IOU_THRESH: 0.35
+IM_SIZE: 512
+OFFSET: 384

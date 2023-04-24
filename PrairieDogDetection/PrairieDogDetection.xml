@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="PrairieDogDetection" type="runtime">
+             
+     <tag name="inputs">
+              
+          <tag name="Input Image" type="resource">
+               <template>
+                    <tag name="label" value="Input Image"/>
+                    <tag name="accepted_type" value="image"/>
+                    <tag name="accepted_type" value="dataset" />
+                    <tag name="prohibit_upload" value="false" type="boolean" />
+               </template>
+          </tag>
+
+          <!-- <tag name="Create New Annos" value="false" type="boolean" >
+               <template>
+               <tag name="label" value="Create New Annotations" />
+               </template>             
+          </tag>
+          <tag name="Upload New Annos" value="false" type="boolean" >
+               <template>
+               <tag name="label" value="Upload New Annotations" />
+               </template>             
+          </tag>
+          <tag name="Download Existing Annos" value="false" type="boolean" >
+               <template>
+               <tag name="label" value="Download Existing Annotations" />
+               </template>             
+          </tag>           -->
+
+          <tag name="new_gobject_name" value=" " type="string" >
+               <template>
+                   <tag name="label" value="Output GObject Name" />
+                   <tag name="maxLength" value="100" type="number" />
+                   <tag name="allowBlank" value="true" type="boolean" />
+               </template>             
+           </tag>
+
+           <!-- <tag name="upload_gobject_name" value=" " type="string" >
+               <template>
+                   <tag name="label" value="Uploaded GObject Name" />
+                   <tag name="maxLength" value="100" type="number" />
+                   <tag name="allowBlank" value="true" type="boolean" />
+               </template>             
+           </tag>
+           <tag name="out_gobject_name" value=" " type="string" >
+               <template>
+                   <tag name="label" value="Download GObject Name" />
+                   <tag name="maxLength" value="100" type="number" />
+                   <tag name="allowBlank" value="true" type="boolean" />
+               </template>             
+           </tag> -->
+
+           <!-- <tag name="resource_url" type="resource">
+               <template>
+                   <tag name="accepted_type" value="Annotations" />
+                   <tag name="label" value="Select Annotation Files to Upload" />
+                   <tag name="prohibit_upload" value="false" type="boolean" />
+               </template>            
+           </tag> -->
+
+
+          <tag name="mex_url" type="system-input_resource"/>
+          <tag name="bisque_token" type="system-input_resource"/>
+     </tag>
+         
+
+     <tag name="outputs">
+              
+
+     </tag>
+         
+     <tag name="execute_options">
+          <tag name="iterable" type="dataset" value="Input Image"/>
+     </tag>
+         
+     <tag name="module_options">
+                  
+          <tag name="version" value="1"/>
+              
+     </tag>
+         
+     <tag name="display_options">
+                 
+          <tag name="group" value="Metadata"/>
+              
+     </tag>
+         
+     <tag name="interface">     
+          <tag name="javascript" type="file" value="webapp.js"/>      
+          <tag name="css" type="file" value="webapp.css"/>  
+     </tag>
+         
+     <tag name="help" type="file" value="public/help.html"/>
+         
+     <tag name="thumbnail" type="file" value="public/thumbnail.jpg"/>
+            
+     <tag name="title" type="string" value="PrairieDogDetection"/>
+         
+     <tag name="authors" type="string" value="BisQue Team"/>
+         
+     <tag name="description" type="string" value="This module detects prairie dogs and their burroughs"/>
+</module>
