@@ -1,0 +1,1 @@
+{"Name": "QRBSA", "Author": "dkjangid", "Description": "This module generates high-resolution 3D EBSD data from Sparsely sectioned 3D EBSD data", "Inputs": {"Input File": "file"}, "Outputs": {"Output Arr": "file", "Output File":"file", "Input LR File": "file"}}
