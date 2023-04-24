@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<module name="3DMaterialGAN" type="runtime">
+<module name="EBSDSR" type="runtime">
              
      <tag name="inputs">
               
+          <tag name="Input Image" type="resource">
+               <template>
+                    <tag name="label" value="Input Image"/>
+                    <tag name="accepted_type" value="file"/>
+                    <tag name="prohibit_upload" value="True"/>
+               </template>
+          </tag>
           <tag name="mex_url" type="system-input_resource"/>
           <tag name="bisque_token" type="system-input_resource"/>
      </tag>
@@ -15,21 +22,21 @@
                                     
                     <tag name="label" value="Outputs"/>
                                 
-                    <tag name="Output Zip" type="file"/>
+                    <tag name="Output Arr" type="file"/>
                </template>
                        
           </tag>
               
-          <tag name="Output Tiff" type="image">
+          <tag name="Input Output IPF" type="image">
                <template>
-                    <tag name="label" value="Output Tiff"/>
+                    <tag name="label" value="Input Output IPF"/>
                </template>
           </tag>
      </tag>
          
      <tag name="execute_options">
                   
-          <tag name="iterable" type="dataset" value="image_url"/>
+          <tag name="iterable" value="image_url" type="dataset"/>
               
      </tag>
          
@@ -55,11 +62,11 @@
          
      <tag name="help" type="file" value="public/help.html"/>
          
-     <tag name="thumbnail" type="file" value="public/thumbnail.jpg"/>
+     <tag name="thumbnail" type="file" value="public/thumbnail.png"/>
             
-     <tag name="title" type="string" value="3DMaterialGAN"/>
+     <tag name="title" type="string" value="EBSDSR"/>
          
-     <tag name="authors" type="string" value="BisQue Team"/>
+     <tag name="authors" type="string" value="Devendra"/>
          
-     <tag name="description" type="string" value="This module generates 3D Grain Data"/>
+     <tag name="description" type="string" value="EBSD Super-resolution"/>
 </module>
