@@ -20,8 +20,6 @@ RUN pip3 install nibabel numpy
 RUN mkdir /module
 WORKDIR /module
 
-COPY src /module/src
-
 ####################################################################
 ######################## Append From Here Down #####################
 ####################################################################
@@ -34,9 +32,12 @@ RUN pip3 install lxml
 RUN pip3 install requests==2.18.4
 RUN pip3 install requests-toolbelt
 RUN pip3 install tables
+RUN pip3 install tifffile
+RUN pip3 install xmltodict
 
 # =====================Build Directory Structure====================
 
+COPY src /module/src
 COPY PythonScriptWrapper.py /module/
 COPY bqapi/ /module/bqapi
 
