@@ -137,3 +137,4 @@ QRBSA/src/DREAM3D-6.5.141-Linux-x86_64/*
 SpeciesTrackerAndCounter/src/runs/train/*
 *.hdf5
 
+*.tar
