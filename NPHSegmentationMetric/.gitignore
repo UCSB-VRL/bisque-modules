@@ -1,0 +1,7 @@
+*.nii.gz
+*.txt
+*.pyc
+*.mat
+*:Zone.Identifier
+*.log
+*.swp

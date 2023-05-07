@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="NPHSegmentationPipeline" type="runtime">
+             
+     <tag name="inputs">
+              
+          <tag name="Input Scans" type="resource">
+               <template>
+                    <tag name="label" value="Input Scans"/>
+                    <tag name="accepted_type" value="image"/>
+                    <tag name="prohibit_upload" value="True"/>
+               </template>
+          </tag>
+          <tag name="mex_url" type="system-input_resource"/>
+          <tag name="bisque_token" type="system-input_resource"/>
+     </tag>
+         
+     <tag name="outputs">
+                  
+          <tag name="NonImage">
+                           
+               <template>
+                                    
+                    <tag name="label" value="Outputs"/>
+                                
+               </template>
+                       
+          </tag>
+              
+          <tag name="Output Scan" type="image">
+               <template>
+                    <tag name="label" value="Output Scan"/>
+               </template>
+          </tag>
+     </tag>
+         
+     <tag name="execute_options">
+                  
+          <tag name="iterable" value="image_url" type="dataset"/>
+              
+     </tag>
+         
+     <tag name="module_options">
+                  
+          <tag name="version" value="1"/>
+              
+     </tag>
+         
+     <tag name="display_options">
+                 
+          <tag name="group" value="Metadata"/>
+              
+     </tag>
+         
+     <tag name="interface">
+                  
+          <tag name="javascript" type="file" value="webapp.js"/>
+                  
+          <tag name="css" type="file" value="webapp.css"/>
+              
+     </tag>
+         
+     <tag name="help" type="file" value="public/help.html"/>
+         
+     <tag name="thumbnail" type="file" value="public/thumbnail.jpg"/>
+            
+     <tag name="title" type="string" value="NPHSegmentationPipeline"/>
+         
+     <tag name="authors" type="string" value="Krithika, Shailja, Sanjay, Vikram"/>
+         
+     <tag name="description" type="string" value="Performs segmentation of CT scans, using ResNet patch based method."/>
+</module>
