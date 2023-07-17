@@ -3,7 +3,8 @@ import os
 from track import *
 from globox.src import globox
 from pathlib import Path
-
+from collections import defaultdict
+import argparse
 def convert_label(input_path, output_path):
     label_path = Path(input_path)  # Where the .txt files are
     image_path = Path(input_path)  
@@ -35,7 +36,61 @@ def convert_label(input_path, output_path):
     annotations.show_stats()
     annotations.save_coco(save_file, label_to_id =label_to_id, imageid_to_id=imageid_to_id, auto_ids=True, verbose=True)
 
+def convert_to_cvat_video(input_path, output_path):
+    id_to_label = {
+    0: 'fragile pink urchin',
+    1: 'gray gorgonian',
+    2: 'squat lobster',
+    3: 'basket star',
+    4: 'long legged sunflower star',
+    5: 'yellow gorgonian',
+    6: 'white slipper sea cucumber',
+    7: 'white spine sea cucumber',
+    8: 'red swiftia gorgonian',
+    9: 'UI laced sponge',
+    }
 
+    # input_path = '/home/bowen68/projects/bisque/Modules/SpeciesTrackerAndCounter/src/examples/output/example_more.txt'
+    # frame_num, class_id, tracker_id, *box_xyxy (x_min y_min x_max y_max), confidence
+    width = 1920
+    height = 1080
+    track_dict = defaultdict(list)
+    with open(input_path, 'r') as f:
+        yolo_annotations = f.readlines()
+
+    for line in yolo_annotations:
+
+        staff = line.split()  
+        frame_id = int(staff[0])
+        class_id = int(staff[1])
+        tracker_id = int(staff[2])
+        xtl, ytl, xbr, ybr = int(staff[3]), int(staff[4]), int(staff[5]), int(staff[6])
+
+
+        track_dict[tracker_id].append([frame_id, class_id, xtl, ytl, xbr, ybr])
+
+    output_file = open(output_path, 'w')
+    output_file.write('<annotations>\n')
+    for track_id, item in track_dict.items():
+        if len(item) != 1:
+            label_name = id_to_label[item[0][1]]
+            string = f'<track id=\"{track_id}\" label=\"{label_name}\">\n'
+            output_file.write(string)
+        
+            for i, (frame_id, class_id, xtl, ytl, xbr, ybr) in enumerate(item):
+                outside = 0
+                string = f'<box frame=\"{frame_id-1}\" keyframe=\"1\" outside=\"{outside}\" occluded=\"0\" xtl=\"{xtl}\" ytl=\"{ytl}\" xbr=\"{xbr}\" ybr=\"{ybr}\" z_order=\"0\">\n</box>\n'
+
+                if i != len(item)-1:
+                    outside = 0
+                else:
+                    outside = 1
+                string = f'<box frame=\"{frame_id-1}\" keyframe=\"1\" outside=\"{outside}\" occluded=\"0\" xtl=\"{xtl}\" ytl=\"{ytl}\" xbr=\"{xbr}\" ybr=\"{ybr}\" z_order=\"0\">\n</box>\n'
+                output_file.write(string)
+            
+            output_file.write('</track>\n')
+    output_file.write('</annotations>\n')
+    output_file.close()
 
 
 # input_path_dict will have input file paths with keys corresponding to the input names set in the cli.
@@ -59,7 +114,8 @@ def run_module(input_path_dict, output_folder_path, min_hysteresis=100, max_hyst
     _, file_name = os.path.split(input_video_path)
     ##### Run algorithm #####
     video_output_path, hdf_path, anno_path = track(input_video_path)
-
+    xml_path = anno_path.split('.')[0] + '.xml'
+    convert_to_cvat_video(anno_path, xml_path)
     # ##### Save output #####
     
     # output_folder_path = '/module/src/runs/detect/detection/'
@@ -71,7 +127,8 @@ def run_module(input_path_dict, output_folder_path, min_hysteresis=100, max_hyst
 
     output_paths_dict['Output Video'] = video_output_path 
     output_paths_dict['Output Counts'] = hdf_path 
-    output_paths_dict['Annotation File'] = anno_path
+    output_paths_dict['YOLO Annotation File'] = anno_path
+    output_paths_dict['CVAT Annotation File'] = xml_path
     # merge labels to one file
     # output_label_folder = '/module/src/runs/detect/detection/labels/'
     # read_files = glob.glob(output_label_folder + "*.txt")
@@ -94,13 +151,19 @@ def run_module(input_path_dict, output_folder_path, min_hysteresis=100, max_hyst
     return output_paths_dict
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input")
+    args = parser.parse_args()
+    print(f'Running on {args.input}')
+
     # Place some code to test implementation
     
     # Define input_path_dict and output_folder_path
     input_path_dict = {}
     current_directory = os.getcwd()
     # Place test image in current directory
-    input_path_dict['Input Video'] = os.path.join(current_directory,'examples/test_video.mp4') # KEY MUST MATCH INPUT NAME SET IN CLI
+    input_path_dict['Input Video'] = os.path.join(current_directory, args.input) # KEY MUST MATCH INPUT NAME SET IN CLI
+    # input_path_dict['Input Video'] = os.path.join(current_directory,'examples/example_more.mp4') # KEY MUST MATCH INPUT NAME SET IN CLI
     output_folder_path = current_directory
     
     # Run algorithm and return output_paths_dict

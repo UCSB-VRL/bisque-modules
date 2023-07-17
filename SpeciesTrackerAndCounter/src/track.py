@@ -31,7 +31,7 @@ import pandas as pd
 
 @dataclass(frozen=True)
 class BYTETrackerArgs:
-    track_thresh: float = 0.25
+    track_thresh: float = 0.1
     track_buffer: int = 30
     match_thresh: float = 0.8
     aspect_ratio_thresh: float = 3.0
@@ -106,11 +106,11 @@ def track(source_video_path):
     video_name = video_name_no_extension + '_output.mp4'
     target_video_path = os.path.join(target_folder_path, video_name)
 
-    CONF_THRES = 0.25
-    IOU_THRES = 0.45
+    CONF_THRES = 0.1
+    IOU_THRES = 0.2
     MAX_DET = 1000
-    LINE_START = Point(50, 600)
-    LINE_END = Point(1920-50, 600)
+    LINE_START = Point(5, 700)
+    LINE_END = Point(1920-5, 700)
     # create BYTETracker instance
     byte_tracker = BYTETracker(BYTETrackerArgs())
     # create VideoInfo instance
@@ -150,10 +150,10 @@ def track(source_video_path):
             xyxy = det[:,:4]
             confidence = det[:,4]
             class_id = det[:,5].astype(int)
-            for i in range(len(xyxy)):
-                line = (frame_num, class_id[i], *xyxy[i])  # label format
-                with open(txt_path, 'a') as f:
-                    f.write(('%g ' * len(line)).rstrip() % line + '\n')
+            # for i in range(len(xyxy)):
+            #     line = (frame_num, class_id[i], *xyxy[i])  # label format
+            #     with open(txt_path, 'a') as f:
+            #         f.write(('%g ' * len(line)).rstrip() % line + '\n')
 
 
             detections = Detections(
@@ -184,6 +184,15 @@ def track(source_video_path):
             line_annotator.annotate(frame=frame0, line_counter=line_counter)
             sink.write_frame(frame0)
             frame_num += 1
+
+            # save detection and tracking to files fomatting as below:
+            # frame_num, class_id, tracker_id, *box_xyxy (x_min y_min x_max y_max), confidence
+            for box_xyxy, confidence, class_id, tracker_id in detections:
+                box_xyxy = box_xyxy.astype(int)
+                line = (frame_num, class_id, tracker_id, *box_xyxy, confidence)
+                line_str = ('%g ' * len(line)).rstrip() % line + '\n'
+                with open(txt_path, 'a') as f:
+                    f.write(line_str)
     # breakpoint()
     # print(line_counter.class_dict)
     name_count_dict = {}
@@ -199,4 +208,5 @@ def track(source_video_path):
 
     return target_video_path, hdf_path, txt_path
 if __name__ == "__main__":
-    track()
+    input_path = '/home/bowen68/projects/bisque/Modules/SpeciesTrackerAndCounter/src/examples/example_more.mp4'
+    track(input_path)
