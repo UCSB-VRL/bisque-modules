@@ -20,7 +20,7 @@ class LineCounter:
         self.tracker_state: Dict[str, bool] = {}
         self.in_count: int = 0
         self.out_count: int = 0
-        self.class_dict = dict(zip(range(0, 9), [0]*10))
+        self.class_dict = dict(zip(range(0, 10), [0]*10))
 
     def update(self, detections: Detections):
         """
