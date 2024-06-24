@@ -1,0 +1,1 @@
+{"Name": "3DMaterialGAN", "Author": "BisQue Team", "Description": "This module generates 3D Grain Data", "Inputs": {}, "Outputs": {"Output Zip": "file", "Output Tiff": "image"}}

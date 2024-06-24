@@ -40,6 +40,7 @@ class PythonScriptWrapper(object):
         """
         Pre-process the images
         """
+        log.info('CKPT01')
         log.info('Pre-Process Options: %s' % (self.options))
         """
 	1. Get the resource image
@@ -53,7 +54,11 @@ class PythonScriptWrapper(object):
         predictor_url = bq.service_url('image_service', path=predictor_uniq)
         log.info("predictor_URL: %s" % (predictor_url))
         predictor_path = os.path.join(kw.get('stagingPath', 'source/Scans'), self.getstrtime()+'-'+image.name + '.nii')
-        
+
+        os.mkdir('source/Scans')
+        log.info('CKPT03 ' + str(os.listdir('.')))
+        log.info('CKPT04 ' + str(os.listdir('source')))
+        log.info('CKPT02 ' + str(predictor_path))
         predictor_path = bq.fetchblob(predictor_url, path=predictor_path)
         log.info("predictor_path: %s" % (predictor_path))
         #predictor_path = fetchImage(bq, predictor_url, dest=predictor_path, uselocalpath=True)
@@ -171,7 +176,7 @@ class PythonScriptWrapper(object):
             print(os.listdir(results_outdir))
             self.outfiles = []
             for files in os.listdir(results_outdir):
-                if files.endswith("1.nii.gz"):
+                if files.endswith('ome.tiff'):
                     self.outfiles.append(results_outdir+files)
             bq.update_mex('Uploading Mask result')
             self.resimage = self.uploadimgservice(bq, self.outfiles)

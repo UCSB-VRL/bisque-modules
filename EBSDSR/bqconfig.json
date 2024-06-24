@@ -1,0 +1,1 @@
+{"Name": "EBSDSR", "Author": "Devendra", "Description": "EBSD Super-resolution", "Inputs": {"Input Image": "file"}, "Outputs": {"Output Arr": "file", "Input Output IPF": "image"}}

@@ -1,0 +1,1 @@
+{"Name": "NPHSegmentationPipeline", "Author": "Krithika, Shailja, Sanjay, Vikram", "Description": "Performs segmentation of CT scans, using ResNet patch based method.", "Inputs": {"Input Scans": "image"}, "Outputs": {"Output Scan": "image"}}

@@ -1,0 +1,27 @@
+weights: "/module/src/data/weights/best.pt"
+source: "/module/src/data/image_tiles"
+data: "/module/src/data/prairie_dog.yaml"
+imgszx: 512
+imgszy: 512
+conf-thres: 0.25
+iou-thres: 0.45
+max-det: 1000
+device: ''
+view-img: False
+save-txt: True
+save-conf: True
+save-crop: False
+nosave: False
+classes:
+agnostic-nms: False
+augment: False
+visualize: False
+update: False
+name: 'exp'
+line-thickness: 3
+hide-labels: False
+hide-conf: False
+half: False
+dnn: False
+vid-stride: 1
+exist-ok: False

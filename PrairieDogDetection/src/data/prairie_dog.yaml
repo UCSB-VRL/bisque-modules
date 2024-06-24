@@ -1,0 +1,9 @@
+path: /home/bowen/projects/prairieDog/data  # dataset root dir
+train: images/train_tiles  # train images (relative to 'path') 4 images
+val: images/val_tiles  # val images (relative to 'path') 4 images
+test:  # test images (optional)
+# Classes
+names:
+  0: prairie_dog
+  1: prairie_dog_in_burrow
+  2: burrow

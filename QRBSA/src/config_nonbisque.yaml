@@ -1,0 +1,14 @@
+input_map: "data/Ti64_3D_LR.npy"
+n_colors: 4
+scale: 4
+model: 'qrbsa_1d'
+act: 'relu'
+n_resblocks: 10
+n_resgroups: 10
+reduction: 16
+n_feats: 128
+res_scale: 1
+save: 'data'
+model_to_load: '/home/devendra/Desktop/BisQue_Modules/QRBSA_module/QRBSA/src/model_weights/model_best.pt'
+leak_value: 0.2
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="QRBSA" type="runtime">
+             
+     <tag name="inputs">
+              
+          <tag name="Input File" type="resource">
+               <template>
+                    <tag name="label" value="Input File"/>
+                    <tag name="accepted_type" value="file"/>
+                    <tag name="prohibit_upload" value="True"/>
+               </template>
+          </tag>
+          <tag name="mex_url" type="system-input_resource"/>
+          <tag name="bisque_token" type="system-input_resource"/>
+     </tag>
+         
+     <tag name="outputs">
+                  
+          <tag name="NonImage">
+                           
+               <template>
+                                    
+                    <tag name="label" value="Outputs"/>
+                                
+                    <tag name="Output Arr" type="file"/>
+               </template>
+
+               <template>
+                                    
+                    <tag name="label" value="Outputs"/>
+                                
+                    <tag name="Output File" type="file"/>
+               </template>
+                
+                <template>
+                                    
+                    <tag name="label" value="Outputs"/>
+                                
+                    <tag name="Input LR File" type="file"/>
+               </template>
+               
+        
+          </tag>
+              
+     </tag>
+
+     <tag name="execute_options">
+                  
+          <tag name="iterable" value="image_url" type="dataset"/>
+              
+     </tag>
+         
+     <tag name="module_options">
+                  
+          <tag name="version" value="1"/>
+              
+     </tag>
+         
+     <tag name="display_options">
+                 
+          <tag name="group" value="Metadata"/>
+              
+     </tag>
+         
+     <tag name="interface">
+                  
+          <tag name="javascript" type="file" value="webapp.js"/>
+                  
+          <tag name="css" type="file" value="webapp.css"/>
+              
+     </tag>
+         
+     <tag name="help" type="file" value="public/help.html"/>
+         
+     <tag name="thumbnail" type="file" value="public/thumbnail.jpg"/>
+            
+     <tag name="title" type="string" value="QRBSA"/>
+         
+     <tag name="authors" type="string" value="dkjangid"/>
+         
+     <tag name="description" type="string" value="This module generates high-resolution 3D EBSD data from Sparsely sectioned 3D EBSD data"/>
+</module>

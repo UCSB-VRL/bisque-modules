@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="Poisson2Sparse" type="runtime">
+             
+     <tag name="inputs">
+              
+          <tag name="Noisy Image" type="resource">
+               <template>
+                    <tag name="label" value="Noisy Image"/>
+                    <tag name="accepted_type" value="image"/>
+                    <tag name="prohibit_upload" value="True"/>
+               </template>
+          </tag>
+          <tag name="mex_url" type="system-input_resource"/>
+          <tag name="bisque_token" type="system-input_resource"/>
+     </tag>
+         
+     <tag name="outputs">
+                  
+          <tag name="NonImage">
+                           
+               <template>
+                                    
+                    <tag name="label" value="Outputs"/>
+                                
+               </template>
+                       
+          </tag>
+              
+          <tag name="Output Image" type="image">
+               <template>
+                    <tag name="label" value="Output Image"/>
+               </template>
+          </tag>
+     </tag>
+         
+     <tag name="execute_options">
+                  
+          <tag name="iterable" type="dataset" value="image_url"/>
+              
+     </tag>
+         
+     <tag name="module_options">
+                  
+          <tag name="version" value="1"/>
+              
+     </tag>
+         
+     <tag name="display_options">
+                 
+          <tag name="group" value="Medical Analysis"/>
+              
+     </tag>
+         
+     <tag name="interface">
+                  
+          <tag name="javascript" type="file" value="webapp.js"/>
+                  
+          <tag name="css" type="file" value="webapp.css"/>
+              
+     </tag>
+         
+     <tag name="help" type="file" value="public/help.html"/>
+         
+     <tag name="thumbnail" type="file" value="public/thumbnail.png"/>
+            
+     <tag name="title" type="string" value="Poisson2Sparse"/>
+         
+     <tag name="authors" type="string" value="Placeholder"/>
+         
+     <tag name="description" type="string" value="Placeholder"/>
+</module>
